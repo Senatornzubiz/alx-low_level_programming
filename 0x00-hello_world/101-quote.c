@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main - Entry point
+ * main - print the standard error sandwiched around the standard out put
  *
  * Description: 'the program's description'
  *
