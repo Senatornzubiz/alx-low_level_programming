@@ -3,6 +3,8 @@
 /**
  * main - Entry point
  *
+ * Description: 'the program's description'
+ *
  * Returm: Always 0 (Success)
  *
  */
