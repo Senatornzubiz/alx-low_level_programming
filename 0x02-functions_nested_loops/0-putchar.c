@@ -6,9 +6,14 @@
 
 int main(void)
 {
-_putchar("\_putchar");
+	char c[10] = "_putchar";
+	int i = 0;
+	while (i < 8)
+	{
+	_putchar(c[i]);
+	i++;
+	}
+	_putchar('\n');
 
-_putchar('\n');
-
-return (0);
+	return (0);
 }
