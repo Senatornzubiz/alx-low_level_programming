@@ -1,93 +1,46 @@
+#include <string.h>
+#include <stdlib.h>
 #include "lists.h"
 
 /**
- * slen - Calculates the length of a string.
- * @str: string
- * Return: The length of the string
-*/
-int slen(const char *str)
+ * _strlen - Length of the passed string
+ * @s: String
+ * Return: Returns the length of a string
+**/
+int _strlen(const char *s)
 {
-	int i;
+int i = 0;
 
-	if (str == NULL)
-		return (0);
-	for (i = 0; str[i] != '\0'; i++)
-		;
-	return (i);
+while (*(s + i) != '\0')
+i++;
+
+return (i);
 }
 
 /**
- * add_node - Creates a node and adds it to a linked list
- * @head: Pointer to head of the linked list
- * @str: String to assigned to the node
- * Return: Pointer to the head of the linked list
-*/
+ * add_node - Prints length and the string, then returns amount of nodes
+ * @head: Pointer to a struct constant
+ * @str: haha ex di
+ * Return: Returns amount of node
+**/
 
 list_t *add_node(list_t **head, const char *str)
 {
-	list_t *new_node;
 
-	if (head == NULL)
-		return (NULL);
-	new_node = malloc(sizeof(list_t));
-	if (new_node == NULL)
-		return (NULL);
+list_t *newNode;
 
-	if (*head == NULL) /*Initialzes the next pointer to NULL*/
-		new_node->next = NULL;
-	else /*Moves the new node to the head*/
-		new_node->next = *head;
-	new_node->str = strdup(str);
-	new_node->len = slen(str);
-	*head = new_node;
-	return (*head);#include "lists.h"
-
-/**
- * slen - Calculates the length of a string.
- * @str: string
- * Return: The length of the string
-*/
-int slen(const char *str)
+newNode = malloc(sizeof(newNode));
+if (newNode == NULL)
+return (NULL);
+if (str == NULL)
 {
-	int i;
-
-	if (str == NULL)
-		return (0);
-	for (i = 0; str[i] != '\0'; i++)
-		;
-	return (i);
+free(newNode);
+return (NULL);
 }
+newNode->len = _strlen(str);
+newNode->str = strdup(str);
+newNode->next = *(head);
+*head = newNode;
 
-/**
- *add_node_end - adds a new node at the end of a list_t.
- *@head: pointer to head element.
- *@str: string to be duplicated
- *
- *Return: address of the new element.
-*/
-
-list_t *add_node_end(list_t **head, const char *str)
-{
-	list_t *newNode, *lastNode;
-
-	newNode = malloc(sizeof(list_t));
-	if (newNode == NULL)
-		return (NULL);
-
-	newNode->str = strdup(str);
-	newNode->len = slen(str);
-	newNode->next = NULL;
-
-	if (*head == NULL)
-		*head = newNode;
-	else
-	{
-		lastNode = *head;
-
-		while (lastNode->next != NULL)
-			lastNode = lastNode->next;
-		lastNode->next = newNode;
-	}
-
-	return (newNode);
+return (newNode);
 }
